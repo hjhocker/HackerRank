@@ -1,0 +1,34 @@
+import java.io.*;
+import java.util.*;
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String time = in.nextLine();
+        String[] arr = time.split(":");
+        Integer hh = Integer.valueOf(arr[0]);
+        String displayHour = "";
+        if (time.contains("PM")) {
+            if (hh == 12) {
+                hh = 12;
+            } else {
+                hh = hh + 12;
+            }
+            System.out.println(hh + ":" + arr[1] + ":" + arr[2].replace("PM",""));
+        } else {
+            if (hh == 12) {
+                hh = 00;
+            }
+            String disp = String.format("%02d", hh);
+            System.out.println(disp + ":" + arr[1] + ":" + arr[2].replace("AM",""));
+        }
+            
+    }
+}
