@@ -1,0 +1,53 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    
+    public static List<Long> removeOne(List<Long> list, int index) {
+        List<Long> list2 = new ArrayList<>(list);
+        list2.remove(index);
+        return list2;
+    }
+    
+    public static long calculateSum(List<Long> list) {
+        long sum = 0;
+        for (Long item : list) {
+            sum = sum + item;
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        long a = in.nextLong();
+        long b = in.nextLong();
+        long c = in.nextLong();
+        long d = in.nextLong();
+        long e = in.nextLong();
+        List<Long> longList = new ArrayList<>();
+        longList.add(a);
+        longList.add(b);
+        longList.add(c);
+        longList.add(d);
+        longList.add(e);
+        
+        long min = calculateSum(longList);
+        long max = a;
+        long val;
+        List<Long> temp = new ArrayList<>(longList.size()-1);
+        for (int i=0;i<longList.size();i++) {
+            temp = removeOne(longList, i);
+            val = calculateSum(temp);
+            if (val < min) {
+                min = val;
+            }
+            if (val > max) {
+                max = val;
+            }
+        }
+        System.out.println(min + " " + max);
+    }
+}
