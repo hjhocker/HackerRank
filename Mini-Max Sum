@@ -35,7 +35,7 @@ public class Solution {
         longList.add(e);
         
         long min = calculateSum(longList);
-        long max = a;
+        long max = 0;
         long val;
         List<Long> temp = new ArrayList<>(longList.size()-1);
         for (int i=0;i<longList.size();i++) {
