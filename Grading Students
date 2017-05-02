@@ -1,0 +1,47 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int findNearest(int num) {
+        while (num % 5 != 0) {
+            num++;
+        }
+        return num;
+    }
+    
+    static int[] solve(int[] grades){
+        int[] solved = new int[grades.length];
+        for (int i=0;i<grades.length;i++) {
+            if (grades[i] < 38) {
+                solved[i] = grades[i];
+            } else {
+                int nearest = findNearest(grades[i]);
+                if (Math.abs(nearest-grades[i]) < 3) {
+                    solved[i] = nearest;
+                } else {
+                    solved[i] = grades[i];
+                }
+            }
+        }
+        return solved;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] grades = new int[n];
+        for(int grades_i=0; grades_i < n; grades_i++){
+            grades[grades_i] = in.nextInt();
+        }
+        int[] result = solve(grades);
+        for (int i = 0; i < result.length; i++) {
+            System.out.println(result[i]);
+        }
+        
+
+    }
+}
