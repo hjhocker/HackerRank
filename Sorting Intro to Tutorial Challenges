@@ -1,0 +1,19 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int search = scanner.nextInt();
+        int n = scanner.nextInt();
+        int[] data = new int[n];
+        for (int i=0;i<n;i++) {
+            if (scanner.nextInt() == search) {
+                System.out.println(i);
+                break;
+            }
+        }
+
+    }
+}
